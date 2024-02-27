@@ -1,0 +1,6 @@
+CREATE TABLE dbo.Empleado 
+( 
+id INT IDENTITY (1, 1) PRIMARY KEY 
+, Nombre VARCHAR(128) NOT NULL 
+, Salario MONEY NOT NULL 
+ ); 

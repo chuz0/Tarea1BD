@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "tedious": "^17.0.0"
+  }
+}
