@@ -1,10 +1,14 @@
-import {getConnection, sql} from '../database/conexion';
+import {getConnection, sql, querys} from '../database';
 
 export const getEmpleado = async (req, res) => {
-    const pool = await getConnection()
-    const result = await pool.request().query('SELECT * FROM Empleado');
-    console.log(res);
-    res.json(result.recordset);
+    try {
+        const pool = await getConnection()
+        const result = await pool.request().query(querys.getAllEmpleados);
+        res.json(result.recordset);
+    }catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
 }
 
 export const createEmpleado = async (req, res) => {
@@ -15,8 +19,15 @@ export const createEmpleado = async (req, res) => {
         return res.status(400).json({msg: 'Error!. Llene todos los campos'});
     }
 
-    const pool = await getConnection()
-    await pool.request().input("name", sql.VarChar, nombre).input("salario", sql.Money, salario).query('INSERT INTO Empleado (nombre, salario) VALUES (@name, @salario)');
+    try {
+        const pool = await getConnection()
+        await pool.request().input("name", sql.VarChar, nombre)
+        .input("salario", sql.Money, salario)
+        .query(querys.createEmpleado);
     
-    res.json('creating empleado');
+        res.json({nombre, salario});
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
 }
