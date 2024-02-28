@@ -1,6 +1,5 @@
 INSERT dbo.Empleado (nombre, salario) 
-VALUES ('Juan Perez', 200000.00),
-        ('Maria Lopez', 250000.00),
+VALUES ('Maria Lopez', 250000.00),
         ('Pedro Ramirez', 300000.00),
         ('Ana Martinez', 350000.00),
         ('Luisa Rodriguez', 400000.00),
