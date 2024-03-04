@@ -17,5 +17,37 @@
         </form>
     </div>
     
+    <script>
+        document.getElementById("formulario-container").addEventListener('submit', function(event){
+            event.preventDefault();
+            // Obtener los valores del formulario
+            const nombre = document.getElementById("nombre").value;
+            const salario = document.getElementById("salario").value;
+            console.log(nombre, salario);
+            // Construir el objeto de datos
+            const datos = {
+                "nombre": nombre,
+                "salario": salario
+            };
+            // Enviar los datos a la API
+            fetch('http://localhost:3000/empleados', {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                redirect: 'follow',
+                referrerPolicy: 'no-referrer',
+                body: JSON.stringify(datos)
+            });
+            return response.json();
+        postData('http://localhost:3000/empleados', { nombre, salario })
+            .then(data => {
+                console.log(data); // JSON data parsed by `response.json()` call
+            });
+        });
+    </script>
 </body>
 </html>

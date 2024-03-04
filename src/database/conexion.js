@@ -2,8 +2,8 @@ import sql from 'mssql';
 
 const dbsettings = {
     user: 'hola',
-    password: 'contraseña',
-    server: 'ERICKPC',
+    password: 'password',
+    server: 'DESKTOP-HUTR52P',
     database: 'tarea1',
     options: {
         encrypt: true,
