@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
     background-color: #c6abab;
@@ -42,3 +43,32 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #45a049;
 }
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+nav {
+	margin-top:20px;
+	position: relative;
+}
+nav ul {
+	list-style:none;
+	padding:0;
+	margin:0;
+	overflow:hidden;
+}
+
+nav > ul > li {
+	float:left;
+}
+
+nav ul li a {
+	text-decoration:none;
+	color:#fff;
+	display:block;
+	padding:10px 20px;
+}
+
