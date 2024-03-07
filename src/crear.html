@@ -1,10 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Document</title>
+    <title>Crear Empleado</title>
     <link rel="stylesheet" href="stylecrear.css">
 </head>
 <body>
-    
+    <div class="formulario-container">
+        <form action="#" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="salario">Salario:</label>
+            <input type="number" id="salario" name="salario" required>
+
+            <input type="submit" value="Enviar">
+
+            <input type="button" value="Regresar" onclick="window.location.href='index.html'">
+        </form>
+    </div>
 </body>
 </html>
