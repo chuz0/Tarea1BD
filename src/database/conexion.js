@@ -1,14 +1,15 @@
 import sql from 'mssql';
+import config from '../config';
 
 const dbsettings = {
-    user: 'hola',
-    password: 'password',
-    server: 'DESKTOP-HUTR52P',
-    database: 'tarea1',
+    user: config.dbUser,
+    password: config.dbPassword,
+    server: config.dbServer,
+    database: config.dbDatabase,
     options: {
         encrypt: true,
         trustServerCertificate: true
-    }
+    },
 };
 
 export async function getConnection() {
