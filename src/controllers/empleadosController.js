@@ -1,5 +1,6 @@
 import {getConnection, sql, querys} from '../database';
 
+// obtener todos los empleados
 export const getEmpleado = async (req, res) => {
     try {
         const pool = await getConnection()
@@ -11,6 +12,7 @@ export const getEmpleado = async (req, res) => {
     }
 }
 
+// crear empleado
 export const createEmpleado = async (req, res) => {
     
     const {nombre, salario} = req.body;

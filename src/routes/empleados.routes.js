@@ -8,8 +8,8 @@ router.get('/empleados', getEmpleado);
 
 router.post('/empleados', createEmpleado);
 
-router.get('/empleados', deleteEmpleado);
+router.delete('/empleados', deleteEmpleado);
 
-router.get('/empleados', updateEmpleado);
+router.put('/empleados', updateEmpleado);
 
 export default router;

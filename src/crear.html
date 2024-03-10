@@ -6,7 +6,7 @@
 </head>
 <body>
     <div class="formulario-container">
-        <form action="#" method="post">
+        <form id="form" action="#" method="post">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required>
 
@@ -18,29 +18,42 @@
             <input type="button" value="Regresar" onclick="window.location.href='index.html'">
         </form>
     </div>
-    <!--Quiero que mande datos que se ingresen en el form al API, /empleados-->
-    <script>
-        const form = document.querySelector('form');
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            const nombre = document.getElementById('nombre').value;
-            const salario = document.getElementById('salario').value;
-            const data = {
-                nombre,
-                salario
-            };
+    <!-- ... tu código HTML anterior ... -->
+
+<script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const nombre = document.getElementById('nombre').value;
+        const salario = document.getElementById('salario').value;
+        const data = {
+            nombre,  // Corregir a 'nombre' en lugar de 'name'
+            salario
+        };
+
+        try {
             const response = await fetch('http://localhost:3000/empleados', {
                 method: 'POST',
+                mode: 'cors', // Cambiar mode a 'cors'
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(data)
             });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
             const json = await response.json();
             console.log(json);
-            alert('Empleado creado');
-            window.location.href = 'index.html';
-        });
-    </script>
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    });
+</script>
+
+<!-- ... tu código HTML posterior ... -->
+
 </body>
 </html>
